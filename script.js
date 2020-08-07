@@ -1,9 +1,16 @@
+// HTML Element Variables
+var startScreen = document.querySelector("#startScreen")
+var startButton = document.querySelector("#startButton")
+var qScreen = document.querySelector("#questions")
 // GIVEN I am taking a code quiz
-
 // WHEN I click the start button
 // THEN a timer starts and I am presented with a question
-// Hide start prompt (display: none)
-// show questions prompt (display: block)
+startButton.addEventListener("click", function(){
+    startScreen.style.display="none"; // Hides start prompt
+    qScreen.style.display="block"; // show questions prompt
+})
+
+
 // populate questions prompt by pulling them from an array of objects
 
 

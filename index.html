@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Challenge</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="row, top">
         <a>highscores</a>
         <p class="float-right">timer</p>
     </div>
-    <div class="jumbotron">
+    <!-- Start screen for the quiz; hidden once quiz is started -->
+    <div class="jumbotron" id="startScreen">
         <h1 class="display-5">JavaScript Quiz Challenge</h1>
         <hr class="my-3">
-        <p class="lead">Try to answer all the questions before the timer runs out! Incorrect answers will subtract 10 seconds from the remaining time. Your final score is determined by how many seconds remain on the timer.</p>
-        
-        <a class="btn btn-primary" href="#" role="button">Start Quiz</a>
-      </div>
+        <p class="lead">Try to answer all the questions before the timer runs out! Incorrect answers will subtract 10
+            seconds from the remaining time. Your final score is determined by how many seconds remain on the timer.</p>
 
+        <a class="btn btn-primary" id="startButton" href="#" role="button">Start Quiz</a>
+    </div>
+    <!-- This will be the div that holds all of our question data; hidden until quiz is started, then cleared and replaced with new values for each question -->
+    <div class="jumbotron" id="questions">
+        <h1 class="display-5">Question 1</h1>
+        <hr class="my-3">
+        <p class="lead">just an example question</p>
+
+        <a class="btn btn-primary" id="startButton" href="#" role="button">Start Quiz</a>
+        <a class="btn btn-primary" id="startButton" href="#" role="button">Start Quiz</a>
+        <a class="btn btn-primary" id="startButton" href="#" role="button">Start Quiz</a>
+    </div>
     <script src="script.js"></script>
 </body>
+
 </html>
