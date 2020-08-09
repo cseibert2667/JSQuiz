@@ -2,6 +2,16 @@
 var startScreen = document.querySelector("#startScreen")
 var startButton = document.querySelector("#startButton")
 var qScreen = document.querySelector("#questions")
+
+// Questions & Answers
+var questions = [
+    {question: "This is where we ask the first question?", options: ["option1", "option2", "option3", "option4"], answer: "option3"},
+    {question: "This is where we ask the second question?", options: ["option1", "option2", "option3", "option4"], answer: "option3"},
+    {question: "This is where we ask the third question?", options: ["option1", "option2", "option3", "option4"], answer: "option3"},
+    {question: "This is where we ask the fourth question?", options: ["option1", "option2", "option3", "option4"], answer: "chunky"},
+    {question: "This is where we ask the fifth question?", options: ["option1", "option2", "option3", "option4"], answer: "option3"},
+]
+
 // GIVEN I am taking a code quiz
 // WHEN I click the start button
 // THEN a timer starts and I am presented with a question
