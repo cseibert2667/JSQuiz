@@ -4,6 +4,7 @@ var startButton = document.querySelector("#startButton")
 var qScreen = document.querySelector("#questions")
 var timer = document.querySelector("#timer")
 var questionText = document.querySelector("#question-text")
+var choices = document.querySelector(".choices")
 var option1 = document.querySelector("#option1")
 var option2 = document.querySelector("#option2")
 var option3 = document.querySelector("#option3")
@@ -42,22 +43,22 @@ function setTime() {
   
     }, 1000);
   }
-
-
+  
+// populate questions prompt by pulling them from an array of objects
 function showQuestion(i){
     var question = questions[i].q;
     var options = questions[i].o;
     questionText.textContent = question;
-    option1.textContent = options[0]
-    option2.textContent = options[1]
-    option3.textContent = options[2]
-    option4.textContent = options[3]
+    for (let n = 0; n < options.length; n++) {
+        var btn = document.createElement("a");
+        btn.setAttribute("class", "btn btn-primary");
+        btn.textContent = options[n];
+        choices.appendChild(btn);
+    }
+    // option2.textContent = options[1]
+    // option3.textContent = options[2]
+    // option4.textContent = options[3]
 }
-
-
-    // populate questions prompt by pulling them from an array of objects
-
-
 // WHEN I answer a question
 // THEN I am presented with another question
 
