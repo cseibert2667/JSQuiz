@@ -11,9 +11,9 @@
 </head>
 
 <body>
-    <div class="row, top">
-        <a>highscores</a>
-        <p class="float-right">timer</p>
+    <div class="top">
+        <a href="">highscores</a>
+        <p class="float-right" id="timer">Score: 60</p>
     </div>
     <!-- Start screen for the quiz; hidden once quiz is started -->
     <div class="jumbotron" id="startScreen">
@@ -28,11 +28,12 @@
     <div class="jumbotron" id="questions">
         <h1 class="display-5">Question 1</h1>
         <hr class="my-3">
-        <p class="lead">just an example question</p>
+        <p class="lead" id="question-text">just an example question</p>
 
-        <a class="btn btn-primary" id="startButton" href="#" role="button">Start Quiz</a>
-        <a class="btn btn-primary" id="startButton" href="#" role="button">Start Quiz</a>
-        <a class="btn btn-primary" id="startButton" href="#" role="button">Start Quiz</a>
+        <a class="btn btn-primary answer-option" id="option1" href="#" role="button">Start Quiz</a>
+        <a class="btn btn-primary answer-option" id="option2" href="#" role="button">Start Quiz</a><br>
+        <a class="btn btn-primary answer-option" id="option3" href="#" role="button">Start Quiz</a>
+        <a class="btn btn-primary answer-option" id="option4" href="#" role="button">Start Quiz</a><br>
     </div>
     <script src="script.js"></script>
 </body>

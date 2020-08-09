@@ -12,3 +12,12 @@
 #questions {
     display: none
 }
+
+.answer-option {
+    margin: 10px 10px;
+}
+
+.top {
+    margin: 10px 10px;
+    font-size: 20px;
+}
