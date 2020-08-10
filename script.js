@@ -2,15 +2,17 @@
 var startScreen = document.querySelector("#startScreen")
 var startButton = document.querySelector("#startButton")
 var qScreen = document.querySelector("#questions")
+var fScreen = document.querySelector("#final-screen")
+var finalScore = document.querySelector("#final-score")
 var timer = document.querySelector("#timer")
 var questionText = document.querySelector("#question-text")
 var choices = document.querySelector(".choices")
-var startingTime = 100
+var startingTime = 5
 var questionIndex = 0
 
 // Questions & Answers
 var questions = [
-    { q: "This is where we ask the first question?", o: ["tree", "rock", "sand", "water"], a: "rock"},
+    { q: "This is where we ask the first question?", o: ["tree", "rock", "sand", "water"], a: "rock" },
     { q: "This is where we ask the second question?", o: ["option0", "option2", "option3", "option4"], a: "option0" },
     { q: "This is where we ask the third question?", o: ["option1", "option2", "option3", "option4"], a: "option3" },
     { q: "This is where we ask the fourth question?", o: ["chunky", "option2", "option3", "option4"], a: "chunky" },
@@ -22,7 +24,7 @@ var questions = [
 startButton.addEventListener("click", function () {
     startScreen.style.display = "none";  // Hides start prompt
     qScreen.style.display = "block";  // show questions prompt
-    // setTime() // starts timer
+    setTime() // starts timer
     buildQuestion(0);
 })
 
@@ -34,7 +36,8 @@ function setTime() {
         timer.textContent = "Score: " + startingTime;  // Displays timer
         if (startingTime === 0) {
             clearInterval(timerInterval);
-            console.log("times up");  // What happens when time runs out
+            qScreen.style.display = "none";
+            fScreen.style.display = "block";  // What happens when time runs out
         }
     }, 1000);
 }
@@ -57,7 +60,8 @@ function buildQuestion(i) {
 function checkAnswer(i) {
     selectedAnswer = event.target.getAttribute("value");
     answer = questions[i].a;
-    if (selectedAnswer === answer) {
+    if (i > 3) {finalScreen()} // what to do when we run out of questions
+    else if (selectedAnswer === answer) {
         console.log("correct");
         i++;
         resetQuestion();
@@ -70,6 +74,11 @@ function checkAnswer(i) {
     }
 }
 
+function finalScreen (){
+    qScreen.style.display = "none";
+    fScreen.style.display = "block";
+    
+}
 
 function resetQuestion() {
     while (choices.firstChild) {
