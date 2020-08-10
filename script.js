@@ -7,9 +7,9 @@ var finalScore = document.querySelector("#final-score")
 var timer = document.querySelector("#timer")
 var questionText = document.querySelector("#question-text")
 var choices = document.querySelector(".choices")
-var startingTime = 5
+var remainingTime = 100
 var questionIndex = 0
-
+var timerInterval
 // Questions & Answers
 var questions = [
     { q: "This is where we ask the first question?", o: ["tree", "rock", "sand", "water"], a: "rock" },
@@ -31,13 +31,12 @@ startButton.addEventListener("click", function () {
 
 
 function setTime() {
-    var timerInterval = setInterval(function () {
-        startingTime--;
-        timer.textContent = "Score: " + startingTime;  // Displays timer
-        if (startingTime === 0) {
-            clearInterval(timerInterval);
-            qScreen.style.display = "none";
-            fScreen.style.display = "block";  // What happens when time runs out
+    timerInterval = setInterval(function () {
+        remainingTime--;
+        timer.textContent = remainingTime;  // Displays timer
+        if (remainingTime === 0) {
+            // clearInterval(timerInterval);
+            endGame();  // What happens when time runs out
         }
     }, 1000);
 }
@@ -60,7 +59,7 @@ function buildQuestion(i) {
 function checkAnswer(i) {
     selectedAnswer = event.target.getAttribute("value");
     answer = questions[i].a;
-    if (i > 3) {finalScreen()} // what to do when we run out of questions
+    if (i > 3) {endGame()} // what to do when we run out of questions
     else if (selectedAnswer === answer) {
         console.log("correct");
         i++;
@@ -71,12 +70,16 @@ function checkAnswer(i) {
         i++;
         resetQuestion();
         buildQuestion(i);
+        remainingTime -= 10;
+        timer.textContent = remainingTime;
     }
 }
 
-function finalScreen (){
+function endGame (){
     qScreen.style.display = "none";
     fScreen.style.display = "block";
+    clearInterval(timerInterval);
+    finalScore.textContent = "Your final score is: "+remainingTime;
     
 }
 
