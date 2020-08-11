@@ -56,6 +56,8 @@ function buildQuestion(i) {
     }
 }
 
+// WHEN I answer a question
+// THEN I am presented with another question
 function checkAnswer(i) {
     selectedAnswer = event.target.getAttribute("value");
     answer = questions[i].a;
@@ -65,6 +67,8 @@ function checkAnswer(i) {
         i++;
         resetQuestion();
         buildQuestion(i);
+    // WHEN I answer a question incorrectly
+    // THEN time is subtracted from the clock
     } else {
         console.log("incorrect");
         i++;
@@ -74,15 +78,17 @@ function checkAnswer(i) {
         timer.textContent = remainingTime;
     }
 }
-
+// WHEN all questions are answered or the timer reaches 0
+// THEN the game is over
 function endGame (){
     qScreen.style.display = "none";
     fScreen.style.display = "block";
     clearInterval(timerInterval);
     finalScore.textContent = "Your final score is: "+remainingTime;
-    
+
 }
 
+// clear out previous button values when moving to next question
 function resetQuestion() {
     while (choices.firstChild) {
         choices.removeChild(choices.firstChild)
@@ -93,17 +99,13 @@ function resetQuestion() {
 
 
 
-// WHEN I answer a question
-// THEN I am presented with another question
-// for loop to pass in questions and button values until there are none left
-// make sure to clear out previous button values when moving to next question
 
 
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
 
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
+
+
+
+
 // display final score, prompt to start over
 
 
