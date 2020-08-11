@@ -8,4 +8,8 @@ Click "Start Quiz", and try to answer the questions as quickly as possible. Keep
 
 Link: https://cseibert2667.github.io/JavaScriptQuiz-HW/
 
+Preview:
+
+![preview screenshot](./assets/screenshot.png);
+
 **Please Note**: There are some lines of code that refer to "highscores", however this part is not *yet* functional. I left them there as I do intend to go back and complete this functionality at a later date.
