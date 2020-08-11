@@ -61,22 +61,28 @@ function buildQuestion(i) {
 function checkAnswer(i) {
     selectedAnswer = event.target.getAttribute("value");
     answer = questions[i].a;
-    if (i > 3) {endGame()} // what to do when we run out of questions
-    else if (selectedAnswer === answer) {
+    if (selectedAnswer === answer) {
         console.log("correct");
         i++;
-        resetQuestion();
-        buildQuestion(i);
-    // WHEN I answer a question incorrectly
-    // THEN time is subtracted from the clock
-    } else {
+        if (i > 4) {endGame()}
+         else {
+             resetQuestion();
+             buildQuestion(i);
+            }
+    } // what to do when we run out of questions
+    else if (selectedAnswer !== answer) {
         console.log("incorrect");
         i++;
-        resetQuestion();
-        buildQuestion(i);
         remainingTime -= 10;
         timer.textContent = remainingTime;
-    }
+        if (i > 4) {endGame()}
+         else {
+             resetQuestion();
+             buildQuestion(i);
+            }
+    // WHEN I answer a question incorrectly
+    // THEN time is subtracted from the clock
+    } else {endGame()}
 }
 // WHEN all questions are answered or the timer reaches 0
 // THEN the game is over
