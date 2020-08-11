@@ -10,6 +10,7 @@ var choices = document.querySelector(".choices")
 var finalButtons = document.querySelector(".end-buttons")
 var hsList = document.querySelector("#highscores-list")
 var hsInput = document.querySelector("#hs-input")
+var gameOver = document.querySelector("#game-over")
 var remainingTime = 50
 var questionIndex = 0
 var timerInterval
@@ -31,8 +32,6 @@ startButton.addEventListener("click", function () {
     buildQuestion(0);
 })
 
-
-
 function setTime() {
     timerInterval = setInterval(function () {
         remainingTime--;
@@ -40,6 +39,7 @@ function setTime() {
         if (remainingTime === 0) {
             // clearInterval(timerInterval);
             endGame();  // What happens when time runs out
+            gameOver.textContent = "Times Up!"
         }
     }, 1000);
 }
@@ -102,22 +102,6 @@ function resetQuestion() {
     choices.innerHTML = ""
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // BONUS
 // WHEN the game is over
 // THEN I can save my initials and score
-
-
-
