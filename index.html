@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Challenge</title>
+    <title>CDL Trivia</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -13,21 +13,20 @@
 <body>
     <div class="top">
         <!-- <a href="">highscores</a> -->
-        <p class="float-right">Score: <span id="timer">100</span></p>
+        <p class="float-right">Score: <span id="timer">50</span></p>
     </div>
     <!-- Start screen for the quiz; hidden once quiz is started -->
     <div class="jumbotron" id="startScreen">
-        <h1 class="display-5">JavaScript Quiz Challenge</h1>
+        <h1 class="display-5">Call of Duty League Trivia</h1>
+        <p class="text-muted">How well do you know the CDL?</p>
         <hr class="my-3">
-        <p class="lead">Try to answer all the questions before the timer runs out! Incorrect answers will subtract 10
-            seconds from the remaining time. Your final score is determined by how many seconds remain on the timer.</p>
+        <p class="lead">Instructions:<br>
+            - Once you click the "Start Quiz" button below, your Score will begin counting down by 1 point per second.<br>- Answer the questions as they are presented, but beware - incorrect answers will subtract 10 points from your score!<br>- Once you've answered all the questions, you will be presented with your final score.<br>- Try again to see if you can improve your score!</p>
 
         <a class="btn btn-primary" id="startButton" href="#" role="button">Start Quiz</a>
     </div>
     <!-- This will be the div that holds all of our question data; hidden until quiz is started, then cleared and replaced with new values for each question -->
     <div class="jumbotron" id="questions">
-        <!-- <h1 class="display-5">Question 1</h1>
-        <hr class="my-3"> -->
         <p class="lead" id="question-text">just an example question</p>
         <div class="choices"></div>
     </div>
@@ -35,7 +34,9 @@
         <h1 class="display-5">Quiz Complete!</h1>
         <hr class="my-3">
         <p class="lead" id="final-score"></p>
-        <div class="end-buttons"></div>
+        <div class="end-buttons">
+            <a class="btn btn-primary" href="">Try Again</a><br>
+            
     </div>
     <script src="script.js"></script>
 </body>

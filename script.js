@@ -8,16 +8,18 @@ var timer = document.querySelector("#timer")
 var questionText = document.querySelector("#question-text")
 var choices = document.querySelector(".choices")
 var finalButtons = document.querySelector(".end-buttons")
-var remainingTime = 100
+var hsList = document.querySelector("#highscores-list")
+var hsInput = document.querySelector("#hs-input")
+var remainingTime = 50
 var questionIndex = 0
 var timerInterval
 // Questions & Answers
 var questions = [
-    { q: "This is where we ask the first question?", o: ["tree", "rock", "sand", "water"], a: "rock" },
-    { q: "This is where we ask the second question?", o: ["option0", "option2", "option3", "option4"], a: "option0" },
-    { q: "This is where we ask the third question?", o: ["option1", "option2", "option3", "option4"], a: "option3" },
-    { q: "This is where we ask the fourth question?", o: ["chunky", "option2", "option3", "option4"], a: "chunky" },
-    { q: "This is where we ask the fifth question?", o: ["option1", "option2", "option3", "option4"], a: "option4" },
+    { q: "What is the name of the team based in Seattle?", o: ["Seattle Slayers", "Seattle Surge", "Seattle Subliners", "Seattle Soul"], a: "Seattle Surge" },
+    { q: "Which was the only team to sign a full roster (5 starters + 5 subs) for the 2020 season?", o: ["Atlanta FaZe", "OpTic Los Angeles", "Dallas Empire", "Toronto Ultra"], a: "Toronto Ultra" },
+    { q: 'Which team does Dylan "Envoy" Hannon play for?', o: ["Florida Mutineers", "New York Subliners", "Chicago Huntsmen", "London Royal Ravens"], a: "Chicago Huntsmen" },
+    { q: "Which team lead the standings at the end of the 2020 regular season?", o: ["Atlanta FaZe", "Dallas Empire", "Chicago Huntsmen", "Minnesota Røkkr"], a: "Atlanta FaZe" },
+    { q: "Out of the 12 pro-league teams, there are only 3 that are NOT based in the US: London Royal Ravens, Toronto Ultra, and ____________", o: ["Venezuela Heretics", "Manchester Mavens", "Sydney Skyline", "Paris Legion"], a: "Paris Legion" },
 ]
 // GIVEN I am taking a code quiz
 // WHEN I click the start button
@@ -70,7 +72,9 @@ function checkAnswer(i) {
              resetQuestion();
              buildQuestion(i);
             }
-    } // what to do when we run out of questions
+    }
+    // WHEN I answer a question incorrectly
+    // THEN time is subtracted from the clock
     else if (selectedAnswer !== answer) {
         console.log("incorrect");
         i++;
@@ -81,29 +85,21 @@ function checkAnswer(i) {
              resetQuestion();
              buildQuestion(i);
             }
-    // WHEN I answer a question incorrectly
-    // THEN time is subtracted from the clock
     } else {endGame()}
 }
 // WHEN all questions are answered or the timer reaches 0
 // THEN the game is over
+// display final score, prompt to start over
 function endGame (){
     qScreen.style.display = "none";
     fScreen.style.display = "block";
     clearInterval(timerInterval);
     finalScore.textContent = "Your final score is: "+remainingTime;
-    var btn = document.createElement("a");
-    btn.setAttribute("class", "btn btn-primary");
-    btn.setAttribute("href", "");
-    btn.textContent = "Try Again"
-        finalButtons.appendChild(btn);
 }
 
 // clear out previous button values when moving to next question
 function resetQuestion() {
-    while (choices.firstChild) {
-        choices.removeChild(choices.firstChild)
-    }
+    choices.innerHTML = ""
 }
 
 
@@ -117,7 +113,6 @@ function resetQuestion() {
 
 
 
-// display final score, prompt to start over
 
 
 // BONUS
