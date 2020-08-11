@@ -7,6 +7,7 @@ var finalScore = document.querySelector("#final-score")
 var timer = document.querySelector("#timer")
 var questionText = document.querySelector("#question-text")
 var choices = document.querySelector(".choices")
+var finalButtons = document.querySelector(".end-buttons")
 var remainingTime = 100
 var questionIndex = 0
 var timerInterval
@@ -91,7 +92,11 @@ function endGame (){
     fScreen.style.display = "block";
     clearInterval(timerInterval);
     finalScore.textContent = "Your final score is: "+remainingTime;
-
+    var btn = document.createElement("a");
+    btn.setAttribute("class", "btn btn-primary");
+    btn.setAttribute("href", "");
+    btn.textContent = "Try Again"
+        finalButtons.appendChild(btn);
 }
 
 // clear out previous button values when moving to next question
