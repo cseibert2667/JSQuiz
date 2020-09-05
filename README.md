@@ -1,4 +1,4 @@
-# JavaScriptQuiz-HW
+# JSQuiz
 
 Description:
 
